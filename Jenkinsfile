@@ -25,11 +25,13 @@ pipeline{
                 sh 'terraform show -no-color tfplan > tfplan.txt'
             }
         }*/
-        steps {
-            script {
-                //sh 'terraform init'
-                //sh 'terraform plan'
-                sh 'terraform apply --auto-approve'
+        stage('Deploy') {
+            steps {
+                script {
+                    //sh '''terraform init'''
+                    //sh '''terraform plan'''
+                    sh 'terraform apply --auto-approve'
+                }
             }
         }
     }    
