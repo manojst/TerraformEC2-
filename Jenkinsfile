@@ -1,5 +1,5 @@
 pipeline{
-     parameters {
+    parameters {
         string(name: 'environment', defaultValue: 'terraform', description: 'Workspace/environment file to use for deployment')
         booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
     }
@@ -8,10 +8,6 @@ pipeline{
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
     }
     agent  any
-    options {
-        timestamps ()
-        ansiColor('xterm')
-    }
     stages{
         stage('checkout') {
             steps {
