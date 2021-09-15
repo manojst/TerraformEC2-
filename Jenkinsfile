@@ -25,23 +25,11 @@ pipeline{
                 sh 'terraform show -no-color tfplan > tfplan.txt'
             }
         }*/
-        stage('Approval') {
-           when {
-               not {
-                   equals expected: true, actual: params.autoApprove
-               }
-           }
-           steps {
-               script {
-                    def plan = readFile 'tfplan.txt'
-                    input message: "Do you want to apply the plan?",
-                    parameters: [text(name: 'Plan', description: 'Please review the plan', defaultValue: plan)]
-               }
-           }
-        }
-        stage('Apply') {
-            steps {
-                sh 'terraform apply -input=false tfplan'
+        steps {
+            script {
+                //sh 'terraform init'
+                //sh 'terraform plan'
+                sh 'terraform apply --auto-approve'
             }
         }
     }    
