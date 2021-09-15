@@ -8,3 +8,9 @@ resource "aws_instance" "Myinstance" {
    ami           = "${lookup(var.ami_id, var.region)}"
    instance_type = "t2.micro"
  }
+
+ resource "aws_vpc" "Myvpc" {
+    cidr_block = "10.0.0.0/22"
+    tags = { Name = "terra_vpc" }
+}
+
