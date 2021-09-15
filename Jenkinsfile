@@ -28,8 +28,8 @@ pipeline{
         stage('Deploy') {
             steps {
                 script {
-                    //sh '''terraform init'''
-                    //sh '''terraform plan'''
+                    sh 'terraform init'
+                    sh 'terraform plan'
                     sh 'terraform apply --auto-approve'
                 }
             }
