@@ -11,3 +11,15 @@ variable "ami_id" {
     eu-central-1 = "ami-9787h5h6nsn"
   }
 }
+
+variable "consul_address" {
+  type        = string
+  description = "Address of Consul server"
+  default     = "127.0.0.1"
+}
+
+variable "consul_port" {
+  type        = number
+  description = "Port Consul server is listening on"
+  default     = "8500"
+}
