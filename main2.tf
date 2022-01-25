@@ -11,8 +11,8 @@ variable "region" {
 provider "aws" {
  
   region   = "ap-south-1"
-  access_key = "AKIAXPYYNAEMNBA76HOX"
-  secret_key = "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"
+  access_key = "********************"
+  secret_key = "***********************"
   
 }
 
